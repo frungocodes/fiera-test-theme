@@ -36,7 +36,7 @@ Using the [Shopify CLI](https://shopify.dev/docs/storefronts/themes/tools/cli) f
 
 ### Test submission
 
-You may do this on your own dev store but we can provide a collaborator account access to a dev store already populated with products. Simply upload your completed test theme to this store and let us know when it's ready to check out.
+We will provide a collaborator account access to a dev store already populated with products. Simply upload your completed test theme to this store and let us know when it's ready to check out.
 
 Please don't spend more than 2-4 hours on it. We're hoping that by providing the base theme and Shopify dev store access you'll have everything you need to do the test with minimal setup. We're not looking for perfection, we're looking for knowledge and problem solving skills.
 
