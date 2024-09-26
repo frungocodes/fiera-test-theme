@@ -1,0 +1,124 @@
+{{ 'component-featured-collection.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="featured-collection"
+>
+  <div class="page-width">
+    <div>
+      {%- if section.settings.title != blank -%}
+        <h2 class="h1">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <div>{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="grid grid--{{ section.settings.products_per_row_desktop }}-col-desktop grid--2-col">
+      {% assign collection = collections[section.settings.collection] %}
+      {%- for product in collection.products -%}
+        <div class="grid__item center">
+          <a href="{{ product.url }}" class="media media--square">
+            <img
+              class="global-media-settings global-media-settings--no-shadow"
+              srcset="
+                {%- if product.featured_image.width >= 550 -%}{{ product.featured_image | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if product.featured_image.width >= 1100 -%}{{ product.featured_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if product.featured_image.width >= 1445 -%}{{ product.featured_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+                {%- if product.featured_image.width >= 1680 -%}{{ product.featured_image | image_url: width: 1680 }} 1680w,{%- endif -%}
+                {%- if product.featured_image.width >= 2048 -%}{{ product.featured_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+                {%- if product.featured_image.width >= 2200 -%}{{ product.featured_image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                {%- if product.featured_image.width >= 2890 -%}{{ product.featured_image | image_url: width: 2890 }} 2890w,{%- endif -%}
+                {%- if product.featured_image.width >= 4096 -%}{{ product.featured_image | image_url: width: 4096 }} 4096w,{%- endif -%}
+                {{ product.featured_image | image_url }} {{ product.featured_image.width }}w
+              "
+              sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+              src="{{ product.featured_image | image_url: width: 1445 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              loading="lazy"
+              width="1100"
+              height="{{ 1100 | divided_by: product.featured_image.aspect_ratio | ceil }}"
+              data-media-id="{{ product.featured_image.id }}"
+            >
+          </a>
+          <div>
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.button_text != blank -%}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="button button-primary center"
+        {%- if section.settings.button_link != blank -%}
+          disabled="true"
+        {%- endif -%}
+      >
+        {{ section.settings.button_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Collection title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat elit eu felis tincidunt, sed porta leo auctor. Cras vehicula pretium neque ac euismod. Praesent pretium, urna at viverra dignissim, risus purus convallis ante, nec faucibus orci est eu ipsum.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "label": "Desktop - Products per row",
+      "min": 2,
+      "max": 6,
+      "default": 4,
+      "step": 1,
+      "unit": "col"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View all"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection"
+    }
+  ]
+}
+{% endschema %}

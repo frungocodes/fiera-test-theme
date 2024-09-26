@@ -1,0 +1,21 @@
+#featured-collection .grid__item {
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05);
+  transition: .5s ease box-shadow;
+}
+
+#featured-collection .grid__item:hover {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.15);
+}
+
+#featured-collection .media img {
+  transform: scale(1);
+  transition: .5s ease transform;
+}
+
+#featured-collection .media:hover img {
+  transform: scale(1.1);
+}
+
+#featured-collection .content {
+  padding: 0 1rem;
+}
