@@ -1,5 +1,27 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-  "sections": {},
+  "sections": {
+    "featured_collection_pAVNrR": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Collection title",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat elit eu felis tincidunt, sed porta leo auctor. Cras vehicula pretium neque ac euismod. Praesent pretium, urna at viverra dignissim, risus purus convallis ante, nec faucibus orci est eu ipsum.</p>",
+        "collection": "automated-collection",
+        "products_per_row_desktop": 3,
+        "button_text": "View all",
+        "button_link": "shopify://collections/automated-collection"
+      }
+    }
+  },
   "order": [
+    "featured_collection_pAVNrR"
   ]
 }
