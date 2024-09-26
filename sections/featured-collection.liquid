@@ -2,6 +2,7 @@
 
 <section
   id="featured-collection"
+  class="color-{{ section.settings.color_scheme }}"
 >
   <div class="page-width">
     <div>
@@ -15,7 +16,9 @@
 
     <div class="grid grid--{{ section.settings.products_per_row_desktop }}-col-desktop grid--2-col">
       {% assign collection = collections[section.settings.collection] %}
-      {%- for product in collection.products -%}
+      {% assign product_count = section.settings.product_count %}
+
+      {%- for product in collection.products limit: product_count -%}
         <div class="grid__item center">
           <a href="{{ product.url }}" class="media media--square">
             <img
@@ -100,6 +103,16 @@
       "unit": "col"
     },
     {
+      "type": "range",
+      "id": "product_count",
+      "label": "Product count",
+      "min": 2,
+      "max": 12,
+      "default": 4,
+      "step": 1,
+      "unit": "col"
+    },
+    {
       "type": "header",
       "content": "Button"
     },
@@ -113,6 +126,12 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
     }
   ],
   "presets": [
