@@ -19,3 +19,9 @@
 #featured-collection .content {
   padding: 0 1rem;
 }
+
+#featured-collection .button-holder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

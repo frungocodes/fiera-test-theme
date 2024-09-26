@@ -51,15 +51,17 @@
       {%- endfor -%}
     </div>
     {%- if section.settings.button_text != blank -%}
-      <a
-        href="{{ section.settings.button_link }}"
-        class="button button-primary center"
-        {%- if section.settings.button_link != blank -%}
-          disabled="true"
-        {%- endif -%}
-      >
-        {{ section.settings.button_text }}
-      </a>
+      <div class="button-holder">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="button button-primary center"
+          {%- unless section.settings.button_link != blank -%}
+            disabled="true"
+          {%- endunless -%}
+        >
+          {{ section.settings.button_text }}
+        </a>
+      </div>
     {%- endif -%}
   </div>
 </section>
