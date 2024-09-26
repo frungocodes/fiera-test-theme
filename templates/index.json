@@ -18,7 +18,7 @@
         "products_per_row_desktop": 4,
         "product_count": 8,
         "button_text": "View all",
-        "button_link": "shopify://collections/automated-collection",
+        "button_link": "",
         "color_scheme": ""
       }
     }
